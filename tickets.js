@@ -8,4 +8,11 @@ function calculateTicketPrice(quantity, basePrice, isPremium = false) {
   return Math.floor(priced);
 }
 
+function calculateTicketPrice(quantity, basePrice, isPremium = false) {
+  const subtotal = quantity * basePrice;
+  const withVip = isPremium ? subtotal * 1.5 : subtotal;
+  const withGroupDiscount = quantity >= 5 ? withVip * 0.9 : withVip;
+  return Math.round(withGroupDiscount);
+}
+
 module.exports = { isValidQuantity, calculateTicketPrice };
