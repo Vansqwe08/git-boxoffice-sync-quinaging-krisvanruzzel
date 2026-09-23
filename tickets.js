@@ -3,7 +3,9 @@ function isValidQuantity(quantity) {
 }
 
 function calculateTicketPrice(quantity, basePrice) {
-  return Math.round(quantity * basePrice);
+  const subtotal = quantity * basePrice;
+  const discounted = quantity >= 5 ? subtotal * 0.9 : subtotal;
+  return Math.round(discounted);
 }
 
 module.exports = { isValidQuantity, calculateTicketPrice };
